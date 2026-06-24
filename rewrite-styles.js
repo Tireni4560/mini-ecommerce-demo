@@ -1,4 +1,5 @@
-:root {
+const fs = require('fs');
+const css = `:root {
     --bg: #f7f4ef;
     --surface: #ffffff;
     --border: #dad3c8;
@@ -602,20 +603,7 @@ p {
 
 .add-to-cart-btn {
     width: 100%;
-    max-width: 220px;
-    border: 2px solid var(--accent);
-    background: rgba(181, 106, 47, 0.08);
-    color: var(--accent);
-    font-weight: 700;
-    box-shadow: 0 14px 28px rgba(181, 106, 47, 0.12);
-}
-
-.add-to-cart-btn:hover,
-.add-to-cart-btn:focus-visible {
-    background: var(--accent);
-    color: var(--surface);
-    border-color: #9c5826;
-    transform: translateY(-1px);
+    max-width: 180px;
 }
 
 .testimonials-section {
@@ -723,13 +711,8 @@ p {
 .about-grid,
 .contact-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 24px;
-    justify-content: center;
-}
-
-.about-grid {
-    align-items: start;
 }
 
 .feature-card,
@@ -740,29 +723,6 @@ p {
     border-radius: 24px;
     padding: 32px;
     transition: transform var(--transition), box-shadow var(--transition);
-}
-
-.feature-card {
-    min-height: 160px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 14px;
-}
-
-.feature-card:nth-child(3) {
-    grid-column: 1 / -1;
-}
-
-.feature-card h3 {
-    font-size: 1.35rem;
-    margin-bottom: 8px;
-}
-
-.feature-card p {
-    color: var(--text-secondary);
-    line-height: 1.85;
-    font-size: 1rem;
 }
 
 .feature-card:hover,
@@ -1022,10 +982,6 @@ p {
     .contact-grid {
         grid-template-columns: 1fr;
     }
-
-    .about-grid {
-        grid-template-columns: repeat(2, minmax(260px, 1fr));
-    }
 }
 
 @media (max-width: 768px) {
@@ -1087,10 +1043,6 @@ p {
         grid-template-columns: 1fr;
     }
 
-    .feature-card:nth-child(3) {
-        grid-column: auto;
-    }
-
     .newsletter-form {
         grid-template-columns: 1fr;
     }
@@ -1135,3 +1087,5 @@ p {
         scroll-behavior: auto !important;
     }
 }
+`;
+fs.writeFileSync('styles.css', css, 'utf8');

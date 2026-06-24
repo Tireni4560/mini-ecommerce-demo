@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Daniel Adeleye's premium product showcase - discover our curated collection of high-quality products">
     <title>Daniel Adeleye Storefront - Premium Products Showcase</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lexend:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,12 +15,12 @@
     <header class="header" role="banner">
         <nav class="navbar" role="navigation" aria-label="main navigation">
             <div class="nav-container">
-                <a href="#" class="logo" aria-label="Daniel Adeleye Storefront home">
-                    <span class="logo-icon">✨</span>
+                <a href="#featured" class="logo" aria-label="Daniel Adeleye Storefront home">
+                    <span class="logo-icon" aria-hidden="true">✨</span>
                     <span class="logo-text">Daniel Adeleye</span>
                 </a>
-                
-                <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+
+                <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">
                     <span class="hamburger"></span>
                 </button>
 
@@ -26,17 +29,22 @@
                     <li><a href="#products" role="menuitem">Products</a></li>
                     <li><a href="#about" role="menuitem">About</a></li>
                     <li><a href="#contact" role="menuitem">Contact</a></li>
+                    <li class="mobile-nav-close-wrapper">
+                        <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close navigation menu">Close</button>
+                    </li>
                 </ul>
 
-                <div class="cart-toggle-wrapper">
+                <div class="nav-actions">
+                    <a href="#products" class="nav-cta">Shop collection</a>
                     <button class="cart-toggle" id="cartToggle" aria-label="Open shopping cart" aria-expanded="false">
-                        <span class="cart-icon">🛒</span>
+                        <span class="cart-icon" aria-hidden="true">🛒</span>
                         <span class="cart-count" id="cartCount" aria-label="Number of items in cart">0</span>
                     </button>
                 </div>
             </div>
         </nav>
     </header>
+    <main>
 
     <!-- Cart Sidebar -->
     <aside class="cart-sidebar" id="cartSidebar" role="region" aria-label="shopping cart">
@@ -133,18 +141,64 @@
     <section class="newsletter-section" role="region" aria-label="newsletter signup">
         <div class="newsletter-container">
             <h2>Stay Updated</h2>
-            <p>Get exclusive offers and new product launches delivered to your inbox</p>
+            <p>Get exclusive offers and new product launches delivered to your inbox.</p>
             <form class="newsletter-form" role="form" aria-label="newsletter subscription">
+                <label for="newsletterEmail" class="visually-hidden">Email address</label>
                 <input 
+                    id="newsletterEmail"
                     type="email" 
                     placeholder="Enter your email" 
-                    aria-label="Email address for newsletter"
+                    aria-describedby="newsletterHelp"
                     required
                 >
-                <button type="submit" aria-label="Subscribe to newsletter">Subscribe</button>
+                <button type="submit" class="btn btn-primary">Subscribe</button>
             </form>
+            <p id="newsletterHelp" class="newsletter-note">No spam, just early access and special offers.</p>
         </div>
     </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section" role="region" aria-label="about the storefront">
+        <div class="section-inner">
+            <div class="section-copy">
+                <p class="eyebrow">Curated for modern living</p>
+                <h2>Thoughtfully selected pieces you’ll enjoy every day</h2>
+                <p>Every product is chosen for premium materials, smart design, and everyday ease. This storefront is built to help you shop confidently for quality items that feel special.</p>
+            </div>
+            <div class="about-grid">
+                <article class="feature-card animate-on-scroll">
+                    <h3>Premium quality</h3>
+                    <p>Only best-in-class products make the collection — no filler, no compromise.</p>
+                </article>
+                <article class="feature-card animate-on-scroll">
+                    <h3>Curated selection</h3>
+                    <p>Each offering is chosen for style, function, and lasting value.</p>
+                </article>
+                <article class="feature-card animate-on-scroll">
+                    <h3>Easy checkout</h3>
+                    <p>Shop quickly with clear pricing, a lightweight cart, and a secure checkout flow.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section" role="region" aria-label="contact information">
+        <div class="section-inner contact-grid">
+            <div class="contact-copy animate-on-scroll">
+                <p class="eyebrow">Need help?</p>
+                <h2>Questions about a product or order?</h2>
+                <p>Reach out for personalized recommendations, order support, or store updates.</p>
+                <a href="mailto:contact@danieladeleye.com" class="btn btn-secondary">Email our team</a>
+            </div>
+            <div class="contact-card animate-on-scroll">
+                <h3>Ready to browse?</h3>
+                <p>Explore the full collection and add your favorites to the cart for a smooth checkout.</p>
+                <a href="#products" class="btn btn-primary">Shop the collection</a>
+            </div>
+        </div>
+    </section>
+</main>
 
     <!-- Footer -->
     <footer class="footer" role="contentinfo">
@@ -169,7 +223,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Daniel Adeleye Storefront. Built by Daniel Adeleye. All rights reserved.</p>
+            <p>&copy; 2026 Daniel Adeleye Storefront. Built by Daniel Adeleye. All rights reserved.</p>
         </div>
     </footer>
 
